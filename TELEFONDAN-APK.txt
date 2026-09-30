@@ -1,0 +1,1 @@
+GitHub'a bu projenin içeriğini yükle. Actions > APK Oluştur > Run workflow. Build bitince Artifacts > ders-programim-apk indir. ZIP içindeki app-debug.apk dosyasını kur.
