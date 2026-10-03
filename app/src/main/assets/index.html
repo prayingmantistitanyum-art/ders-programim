@@ -1,1 +1,83 @@
-<!doctype html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><link rel="stylesheet" href="style.css"><title>Ders Programım</title></head><body><main><header><div><small>DERS PROGRAMIM</small><h1 id="title"></h1></div><button id="today">Bugün</button></header><section class="progress"><div><b id="count"></b><b id="pct"></b></div><progress id="bar" max="100"></progress></section><nav><button id="prev">‹</button><input id="date" type="date"><button id="next">›</button></nav><section id="list"></section><div id="empty" class="empty">Bugün görev yok.</div><button id="add" class="fab">＋ Görev Ekle</button></main><dialog id="dlg"><form id="form"><h2>Görev</h2><label>Ders<input id="subject" required></label><label>Çalışma<textarea id="detail" required></textarea></label><label>Tarih<input id="taskDate" type="date" required></label><div class="row"><button type="button" id="cancel">Vazgeç</button><button class="primary">Kaydet</button></div></form></dialog><script src="app.js"></script></body></html>
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <link rel="stylesheet" href="style.css">
+  <title>Ders Programım</title>
+</head>
+<body>
+<main>
+  <header>
+    <div><small>DERS PROGRAMIM</small><h1 id="title"></h1></div>
+    <button id="today">Bugün</button>
+  </header>
+
+  <section class="progress">
+    <div><b id="count"></b><b id="pct"></b></div>
+    <progress id="bar" max="100"></progress>
+  </section>
+
+  <nav>
+    <button id="prev">‹</button>
+    <input id="date" type="date">
+    <button id="next">›</button>
+  </nav>
+
+  <section id="list"></section>
+  <div id="empty" class="empty">Bugün görev yok.</div>
+
+  <div class="bottom-actions">
+    <button id="photo" class="photo-btn">📷 Fotoğraftan Ekle</button>
+    <button id="add" class="add-btn">＋ Görev Ekle</button>
+  </div>
+</main>
+
+<dialog id="dlg">
+  <form id="form">
+    <h2>Görev</h2>
+    <label>Ders<input id="subject" required></label>
+    <label>Çalışma<textarea id="detail" required></textarea></label>
+    <label>Tarih<input id="taskDate" type="date" required></label>
+    <div class="row">
+      <button type="button" id="cancel">Vazgeç</button>
+      <button class="primary">Kaydet</button>
+    </div>
+  </form>
+</dialog>
+
+<dialog id="ocrDlg" class="ocr-dialog">
+  <div class="ocr-content">
+    <div class="ocr-head">
+      <div>
+        <small>FOTOĞRAFTAN PROGRAM</small>
+        <h2>Bulunan görevleri kontrol et</h2>
+      </div>
+      <button type="button" id="ocrClose" class="icon-btn">×</button>
+    </div>
+
+    <p class="hint">Metni istediğin gibi düzelt. “Tekrar ayır” dediğinde her satır bir görev taslağına dönüşür; gün adları ve tarihler mümkün olduğunca otomatik algılanır.</p>
+
+    <label>Fotoğraftan okunan metin
+      <textarea id="ocrText" rows="8" placeholder="Fotoğraftan okunan metin burada görünecek..."></textarea>
+    </label>
+
+    <label>Haftanın / programın başlangıç tarihi
+      <input id="ocrBaseDate" type="date">
+    </label>
+
+    <button type="button" id="ocrParse" class="secondary full">↻ Tekrar ayır</button>
+
+    <div id="ocrTasks" class="ocr-tasks"></div>
+
+    <div class="row sticky-row">
+      <button type="button" id="ocrCancel">Vazgeç</button>
+      <button type="button" id="ocrSave" class="primary">Seçilenleri Ekle</button>
+    </div>
+  </div>
+</dialog>
+
+<div id="toast" class="toast" hidden></div>
+<script src="app.js"></script>
+</body>
+</html>
